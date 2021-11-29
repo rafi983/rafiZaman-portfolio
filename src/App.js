@@ -8,25 +8,27 @@ import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/projects">
-          <Projects />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/projects">
+            <Projects />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -1,10 +1,5 @@
 .background2 {
     background-color: #111111;
-    height: 1500px !important;
-}
-@media only screen and (max-width: 991px) {
-    .background2 {
-        background-color: #111111;
-        height: 4300px !important;
-    }
+    min-height: 100vh;
+    padding-bottom: 2rem;
 }

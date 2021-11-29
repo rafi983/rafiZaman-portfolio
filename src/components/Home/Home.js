@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Container, Grid, Typography } from "@mui/material";
 import styled from "styled-components";
 import myImage from "../../images/myImage.jpg";
 import Menubar from "../Menubar/Menubar";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 const image = {
   borderRadius: "1.8rem",
@@ -24,49 +25,74 @@ export const StyledButton = styled.button`
 `;
 
 const Home = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
-    <div className="background">
-      <Menubar />
-      <Container>
-        <Grid
-          container
-          spacing={2}
-          style={{ paddingTop: "9rem", alignItems: "center" }}
+    <div>
+      {loading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: "100vh",
+            backgroundColor: "#111111",
+          }}
         >
-          <Grid item xs={11} sm={11} md={5} lg={5}>
-            <img
-              src={myImage}
-              className="img"
-              style={image}
-              width="100%"
-              alt=""
-            />
-          </Grid>
-          <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
-          <Grid item xs={12} sm={12} md={5} lg={5}>
-            <Typography variant="h2">
-              <span style={{ fontWeight: 500 }}>Hello, I'm</span> <br />
-              <span style={{ fontWeight: 700, color: "#FFB400" }}>
-                Rafi Irfan Zaman
-              </span>
-            </Typography>
-            <Typography variant="h4" sx={{ my: 2 }}>
-              A Front-End Web Developer
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ fontSize: "1.2rem", color: "#808080" }}
+          <ClimbingBoxLoader color={"#E01093"} loading={loading} size={30} />
+        </div>
+      ) : (
+        <div className="background">
+          <Menubar />
+          <Container>
+            <Grid
+              container
+              spacing={2}
+              style={{ paddingTop: "5rem", alignItems: "center" }}
             >
-              I have been developing website for the last few months.After I
-              came to development, I found my deep interests in front-end.
-              Developed too many projects recent days.
-            </Typography>
-            <a href="./resume.pdf" download>
-              <StyledButton>Download Resume</StyledButton>
-            </a>
-          </Grid>
-        </Grid>
-      </Container>
+              <Grid item xs={11} sm={11} md={5} lg={5}>
+                <img
+                  src={myImage}
+                  className="img"
+                  style={image}
+                  width="100%"
+                  alt=""
+                />
+              </Grid>
+              <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
+              <Grid item xs={12} sm={12} md={5} lg={5}>
+                <Typography variant="h2">
+                  <span style={{ fontWeight: 500 }}>Hello, I'm</span> <br />
+                  <span style={{ fontWeight: 700, color: "#FFB400" }}>
+                    Rafi Irfan Zaman
+                  </span>
+                </Typography>
+                <Typography variant="h4" sx={{ my: 2 }}>
+                  A Front-End Web Developer
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ fontSize: "1.2rem", color: "#808080" }}
+                >
+                  I have been developing website for the last few months.After I
+                  came to development, I found my deep interests in front-end.
+                  Developed too many projects recent days.
+                </Typography>
+                <a href="./resume.pdf" download>
+                  <StyledButton>Download Resume</StyledButton>
+                </a>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
+      )}
     </div>
   );
 };
