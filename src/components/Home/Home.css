@@ -1,0 +1,14 @@
+.background {
+    background-color: #111111;
+    height: 100vh;
+    color: #fff;
+}
+@media only screen and (max-width: 991px) {
+    .background {
+        height: 100%;
+        padding-bottom: 4rem;
+    }
+    .img {
+        margin-top: -5rem;
+    }
+}
