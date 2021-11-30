@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import Menubar from "../Menubar/Menubar";
 import "./Projects.css";
 import { Spinner } from "react-bootstrap";
+import { StyledButton } from "../Home/Home";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -33,7 +35,7 @@ const Projects = () => {
               <Grid item xs={12} sm={12} md={6} lg={6} key={project?._id}>
                 <Card
                   sx={{
-                    height: "470px",
+                    height: "520px",
                     backgroundColor: "#130f40",
                     color: "#fff",
                   }}
