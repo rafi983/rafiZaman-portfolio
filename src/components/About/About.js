@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Container, Grid, Typography, Box } from "@mui/material";
-import Menubar from "../Menubar/Menubar";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import Menubar from "../Menubar/Menubar";
 
 const About = () => {
   const [info, setInfo] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://aqueous-sands-35387.herokuapp.com/about")
+    fetch("http://localhost:5000/about")
       .then((res) => res.json())
       .then((data) => {
         setInfo(data);

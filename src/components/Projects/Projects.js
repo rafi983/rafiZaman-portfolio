@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
 import { Container, Grid } from "@mui/material";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Menubar from "../Menubar/Menubar";
 import "./Projects.css";
-import { Spinner } from "react-bootstrap";
-import { StyledButton } from "../Home/Home";
-import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://aqueous-sands-35387.herokuapp.com/projects")
+    fetch("http://localhost:5000/projects")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
@@ -68,6 +66,7 @@ const Projects = () => {
                           fontWeight: 600,
                         }}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         Live-site
                       </a>
@@ -83,6 +82,7 @@ const Projects = () => {
                           fontWeight: 600,
                         }}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         Source-code
                       </a>
