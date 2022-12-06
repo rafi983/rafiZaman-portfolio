@@ -15,7 +15,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/projects")
+    fetch("https://rafizaman-server.onrender.com/projects")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);

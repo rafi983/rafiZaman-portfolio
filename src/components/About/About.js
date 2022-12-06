@@ -10,7 +10,7 @@ const About = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/about")
+    fetch("https://rafizaman-server.onrender.com/about")
       .then((res) => res.json())
       .then((data) => {
         setInfo(data);
